@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="./js/jquery.maskedinput.min.js"></script>
+</head>
+
+<body>
+	<div class="modal">
+		<div class="modal-dialog">
+			<div class="modal-header">
+				<h3 class="modal-title">Регистрация</h3>
+				<button class="close">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.00122 1L29.001 29" stroke="#9E9DAC" stroke-width="2"/>
+                        <path d="M29.0008 1L1.00102 29" stroke="#9E9DAC" stroke-width="2"/>
+                        </svg>
+                </button>
+			</div>		
+            <form class="modal-body">
+                <label class="tool">
+                    <select class="input city" autofocus>
+                        <option disabled selected>Город</option>
+                        <option value="Сочи">Сочи</option>
+                        <option value="Санкт-Петербург">Санкт-Петербург</option>
+                        <option value="Краснодар">Краснодар</option>
+                        <option value="Екатеринбург">Екатеринбург</option>
+                        <option value="Краснодар">Краснодар</option>
+                    </select>
+                    <span>Город</span>
+                </label>                     
+                <!-- Инпуты -->
+                <label class="tool"><input onchange="checkParams()" id="name" class="input" type="text" placeholder="Имя Фамилия"><span>Имя Фамилия</span></label> 
+                <label class="tool"><input onchange="checkParams()" class="input" type="tel" id="phone" placeholder="Телефон"><span>Телефон</span></label>
+                <label class="tool"><input class="input" type="text" placeholder="Комментарий"><span>Комментарий</span></label> 
+                <!-- Чекбоксы -->
+                <div class="mk">
+                    <span>Мастер-класс</span>
+                    <input type="checkbox" class="custom-checkbox" id="economy" value="Экономия на онлайн-шопинге"><label for="economy">Экономия на онлайн-шопинге</label> 
+                    <input type="checkbox" class="custom-checkbox" id="mk-1" value="Мастер-класс" ><label for="mk-1">Мастер-класc</label> 
+                    <input type="checkbox" class="custom-checkbox" id="best" value="Лучшие площадки" checked><label for="best">Лучшие площадки</label> 
+                    <input type="checkbox" class="custom-checkbox" id="mk-2" value="Мастер-класс"><label for="mk-2">Мастер-класс</label>
+                </div>
+                <div class="timing">
+                    <span>Время проведения</span>
+                    <input type="checkbox" class="custom-checkbox" id="12" value="Экономия на онлайн-шопинге" checked> <label for="12">12:00 – 14:00</label>
+                    <input type="checkbox" class="custom-checkbox" id="15" value="Экономия на онлайн-шопинге"><label for="15">15:00 – 17:00</label> 
+                    <input type="checkbox" class="custom-checkbox" id="19" value="Экономия на онлайн-шопинге"> <label for="19">19:00 – 21:00</label>
+                </div>
+                <!-- Переключатель онлайн/оффлайн -->
+                <div class="type-of-meeting">                    
+                   <label>
+                    <label class="switch" >
+                        <input type="checkbox" id="toggle">
+                        <span class="slider"></span>
+                        <span class="text"></span>
+                    </label>
+                </div>
+                <!-- Ползунок цены -->
+                <div class="price">
+                    <span>Сколько вы готовы заплатить за мероприятие?</span>
+                    <h2 id="rangeValue">0</h2>
+                    <div id='fillRangeValue'></div>
+                    <input type="range" class="range" id="range" name="" value="0" min="0" max="10000" step="500" inmousemove="rangeSlider(this.value)"
+                    onchange="rangeSlider(this.value)" >                    
+                </div>
+                <!-- Кнопка отправить -->
+                <div class="modal-footer">
+                    <input onclick="onSubmitClick()" type="button" class="button" id="submit" value="Отправить" disabled>
+                    <span>Нажимая на кнопку, вы соглашаетесь <br/>с <a>Политикой обработки персональных данных</a></span>
+                </div>
+            </div>
+		</div>
+                
+            </form>
+		</div>
+    </div>
+    <!-- Модальное окно с благодарностью -->
+    <div class='popup'>
+        <div class="container-thanks">
+            <button class="close">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.00122 1L29.001 29" stroke="#9E9DAC" stroke-width="2"/>
+                    <path d="M29.0008 1L1.00102 29" stroke="#9E9DAC" stroke-width="2"/>
+                    </svg>
+            </button>
+            <h3 class="modal-title title-thks">Cпасибо за заявку</h3>
+            <p class='text-thanks'>Мы свяжемся с вами в ближайшее время</p>
+            <button class="button btn-thanks">Продолжить</button>
+        </div>
+    </div>
+    <!-- jQuery код -->
+    <script>                
+        function checkParams() {
+        let name = $('#name').val();
+        let phone = $('#phone').val();
+        
+        if(name.length != 0 && phone.length != 0) {
+            $('#submit').removeAttr('disabled');
+            console.log('button able to submit');
+        } else {
+            $('#submit').attr('disabled', 'disabled');
+        }
+        }
+        $(function(){
+        $("#phone").mask("+7 999 9999999");    });
+
+        $(document).ready(function () {
+        $('.custom-checkbox').on('keypress', function (event) {
+            if (event.which === 13) {
+                this.checked = !this.checked;
+            }
+        });
+    });
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

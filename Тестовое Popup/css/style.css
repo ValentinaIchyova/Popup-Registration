@@ -1,0 +1,694 @@
+/* Подключение шрифтов */
+@font-face {
+	font-family: 'Mabry Pro';
+	src: url('../fonts/Mabry\ Pro.eot');
+	src: local('☺'), url('../fonts/Mabry Pro.woff') format('woff'), url('../fonts/Mabry Pro.ttf') format('truetype'), url('../fonts/Mabry Pro.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Mabry Pro Bold';
+	src: url('../fonts/Mabry\ Pro\ Bold.eot');
+	src: local('☺'), url('../fonts/Mabry Pro Bold.woff') format('woff'), url('../fonts/Mabry Pro Bold.ttf') format('truetype'), url('../fonts/Mabry Pro Bold.svg') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Mabry Pro Black';
+	src: url('../fonts/Mabry\ Pro\ Black.eot');
+	src: local('☺'), url('../fonts/Mabry Pro Black.woff') format('woff'), url('../fonts/Mabry Pro Black.ttf') format('truetype'), url('../fonts/Mabry Pro Black.svg') format('svg');
+	font-weight: 900;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Mabry Pro Light';
+	src: url('../fonts/Mabry Pro Light.eot');
+	src: local('☺'), url('../fonts/Mabry Pro Light.woff') format('woff'), url('../fonts/Mabry Pro Light.ttf') format('truetype'), url('../fonts/Mabry Pro Light.svg') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+
+
+body span {
+    font-family: 'Mabry Pro Light';
+    font-weight: 300;
+    color: #FFFFFF;
+}
+
+.modal {
+    margin: 0 auto;
+    display: block;
+    float: none; 
+    width: 720px;
+    height: 1480px;
+    background: #3D3C5A;
+    border-radius: 16px;
+}
+.modal-dialog{ 
+    padding-top: 70px;   
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.modal-body {
+    margin-top: 41px;
+}
+.modal-title {
+    position: absolute;
+    font-family: 'Mabry Pro Black';
+    margin: 0;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 56px;
+    color: #FFFFFF;
+}
+/* Кнопка Закрыть */
+.close {
+    position: relative;
+    right: 140px;
+    top: 40px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.close:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+}
+.close:hover {
+    opacity: 0.5;
+}
+/* Стилизация инпутов */
+.input {
+    width: 100%;
+    font-family: 'Mabry Pro Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+    background-color:#3D3C5A;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255, .3);
+    margin-top: 73px;
+    padding-bottom: 14px;
+    outline: #FFFFFF;
+}
+
+#phone {
+    width: 256px;
+}
+.tool {
+    position: relative;
+}
+.tool span{
+    position: absolute;
+    font-family: 'Mabry Pro Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+    bottom: 0;
+    left: 2px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+/* Всплывающие сверху подписи */
+.tool input:not(:placeholder-shown) ~ span {
+    bottom: 45px;
+    font-family: 'Mabry Pro';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255,255,255, .3);
+    opacity: 1;
+    visibility: visible;
+}
+.tool select:not(:placeholder-shown) ~ span {
+    bottom: 60px;
+    font-family: 'Mabry Pro';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255,255,255, .3);
+    opacity: 1;
+    visibility: visible;
+}
+.tool select:focus {
+    border: none;
+    outline: none;
+}
+/* при фокусе на форме */
+.tool input:placeholder-shown:focus ~ span {
+    bottom: 56px;
+    font-family: 'Mabry Pro';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    opacity: 0.5;
+    visibility: visible;
+}
+
+.tool option {
+    font-family: 'Mabry Pro';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    width: 100%;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    font-family: 'Mabry Pro Light';
+}
+
+/* Чекбоксы для выбора мастер-класса */
+.mk {
+    margin-top: 39px;
+}
+
+.mk span {
+    font-family: 'Mabry Pro Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+.mk label {
+    font-family: 'Mabry Pro Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+    opacity: 0.3;
+    margin-top: 16px;
+}
+/* Чекбоксы для выбора времени */
+.timing {
+    margin-top: 39px;
+}
+.timing span {
+    font-family: 'Mabry Pro Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+.timing label {
+    font-family: 'Mabry Pro Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+    opacity: 0.3;
+    margin-top: 16px;
+}
+
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.custom-checkbox+label {
+    display: block;
+    align-items: center;
+    user-select: none;
+}
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #FF7777;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    margin-right: 16px;
+ }
+.custom-checkbox:checked+label::before {
+    border-radius: 4px;
+    background: #FF7777;
+    box-shadow: 0px 2px 10px #FF7777;
+    background-image: url("../img/Vector\ 2.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* стили для чекбокса, находящегося в фокусе */
+.custom-checkbox:focus+label::before {
+    outline: 2px solid #FF7777; 
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.custom-checkbox:focus:not(:checked)+label::before {
+    outline: 2px solid #FF7777; 
+    border-color: #80bdff;
+}
+.custom-checkbox:checked+label {
+    opacity: 1;
+}
+/* Переключатель встречи - онлайн/оффлайн */
+.type-of-meeting {
+    margin-top: 46px;
+}
+.type-of-meeting span {
+    font-family: 'Mabry Pro Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin-right: 16px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+}
+  
+/* Hide default HTML checkbox */
+.switch input {display:none; outline:none; border: 0; outline: 0 !important;}
+#toggle:focus {
+    border: 1px solid #FF7777;
+}
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 1px solid #FF7777;
+    width: 40px;
+    height: 24px;
+    top: 0;
+    left: 76px;
+    right: 0;
+    bottom: 0;
+    background-color:  #3D3C5A;
+    -webkit-transition: .4s;
+    transition: .4s;
+    vertical-align: center;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    width: 16px;
+    height: 16px;
+    left: 3px;
+    bottom: 3px;
+    background: #FF7777;
+    box-shadow: 0px 2px 10px #FF7777;
+    border-radius: 8px;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color:  #3D3C5A;
+}
+
+input:focus + .slider {
+    border: 2px solid #FF7777; 
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+.text {
+    color: white;
+}
+  
+.text:after {
+    position: absolute;
+    right: -13px;
+    content: "Онлайн";
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+}
+.text:before {
+    position: absolute;
+    left: 138px;
+    content: "Оффлайн";
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+}
+  
+input + .slider + .text:after {
+    opacity: 1; 
+}
+input + .slider + .text:before {
+    opacity: 0.3;
+}
+input:checked + .slider + .text:after {
+    opacity: 0.3;
+}
+
+input:checked + .slider + .text:before {
+    opacity: 1;
+}
+
+/* Ползунок, цена мероприятия */
+.price {
+    margin-top: 45px;
+}
+
+.price span {
+    font-family: 'Mabry Pro Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+#rangeValue{
+    margin: 0;
+    margin-top: 10px;
+    position: relative;
+    text-align: left;
+    font-family: 'Mabry Pro Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+}
+
+#rangeValue:after {
+    content: ' ₽';
+}
+
+#fillRangeValue {
+    position: absolute;
+    background: #FF7777;
+    box-shadow: 0px 2px 10px #FF7777;
+    border-radius: 2px;
+    z-index: 1;
+    margin-top: 15px;
+    height: 3px;
+    width: 0;    
+}
+
+.range {
+    -webkit-appearance: none;
+    position: relative;
+    background: rgba(255,255,255, .3);
+    border-radius: 1px;
+    width: 560px;
+    height: 1px;
+    outline: none;
+    z-index: 2;
+}
+.price input:focus  {
+    box-shadow: 0px 2px 10px #FF7777;
+}
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 23px;
+    height: 23px;
+    background: #FF7777;
+    color: #FF7777;
+    box-shadow: 0px 2px 10px #FF7777;
+    border-radius: 11.5px;
+    z-index: 23;
+    cursor: pointer;
+}
+.range::-moz-slider-thumb {
+    -webkit-appearance: none;
+    width: 23px;
+    height: 23px;
+    background: #FF7777;
+    color: #FF7777;
+    box-shadow: 0px 2px 10px #FF7777;
+    border-radius: 11.5px;
+    z-index: 2;
+}
+.range::-ms-thumb {
+    -webkit-appearance: none;
+    width: 23px;
+    height: 23px;
+    background: #FF7777;
+    color: #FF7777;
+    box-shadow: 0px 2px 10px #FF7777;
+    border-radius: 11.5px;
+    z-index: 2;
+}
+input[type=range]:focus {
+    outline:rgba(0, 123, 255, 0.25);
+}
+
+input[type="range"]::-moz-range-progress {
+    background-color: #43e5f7; 
+}
+input[type="range"]::-moz-range-track {  
+    background-color: #9a905d;
+}
+input[type="range"]::-ms-fill-lower {
+    background-color: #43e5f7; 
+}
+input[type="range"]::-ms-fill-upper {  
+    background-color: #9a905d;
+}
+
+/* Кнопка отправить */
+#submit, .button {
+    background: #FF7777;
+    box-shadow: 0px 10px 30px rgba(255, 119, 119, 0.4);
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    position: absolute;
+    width: 200px;
+    height: 58px;
+    font-family: 'Mabry Pro Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+    color: #FFFFFF;
+}
+#submit:disabled,
+#submit[disabled] {
+    background: #FFFFFF;
+    opacity: 0.3;
+    border-radius: 8px;
+    color: #3D3C5A;
+    box-shadow: none;
+}
+#submit:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+}
+#submit:hover:enabled {
+    background-color: #FF7777;
+    opacity: 0.8;
+}
+
+.modal-footer {
+    margin-top: 54px;
+    display: flex;
+    flex-direction: row;
+}
+.modal-footer span {
+    position: relative;
+    font-family: 'Mabry Pro Light';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    margin-left: 228px;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+.modal-footer span a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Второе модальное окно, благодарность */
+.popup{
+    visibility: hidden;
+}
+.hidden {
+    visibility: hidden;
+}
+.container-thanks{
+    position: absolute;
+    width: 720px;
+    height: 416px;
+    background: #3D3C5A;
+    border-radius: 16px;
+    padding-left: 80px;
+    margin: 0 auto;
+    display: block;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+.title-thks{
+    padding-top: 67px;
+}
+.text-thanks{
+    font-family: 'Mabry Pro';
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+    margin-top: 178px;
+}
+
+.btn-thanks{
+   margin-top: 24px;
+   text-align: center;
+}
+
+/* Медиа правила */
+
+@media screen and (max-width: 1920px) {
+    .modal {
+        width: 720px;
+        height: 1512px;
+    }
+    .close {
+        top: -40px;
+        right: -550px;
+    }
+}
+
+@media screen and (max-width: 1360px) {
+    .modal {
+        margin: 0 auto;
+        width: 720px;
+        height: 1480px;
+    }
+    .close {
+        right: -500px;
+        top: 0;
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .modal {
+        width: 80%;
+    }
+    .close {
+        position: absolute;
+        right: 140px;
+        top: 40px;
+    }
+    .range {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .modal {
+        width: 760px;
+        margin: 0 auto;
+    }
+    .close {
+        position: absolute;
+        right: 25px;
+        top: 40px;
+    }
+    .range {
+        width: 100%;
+    }
+    #submit, .button {
+        width: 150px;
+    }
+    .modal-footer span {
+        font-size: 16px;
+        margin-left: 180px;
+    }
+    .tool option { 
+        font-size: 16px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .modal {
+        width: 763px;
+        position: absolute;
+        margin: 0 auto;
+        display: block;
+    }
+    .close {
+        position: absolute;
+        right: 43px;
+        top: 49px;
+    }
+    body span {
+        font-family: 'Mabry Pro Light';
+        font-weight: 300;
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .modal {
+        width: 776px;
+        position: absolute;
+        margin: 0 auto;
+        display: block;
+    }
+    .close {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+    }
+    body span {
+        font-family: 'Mabry Pro Light';
+        font-weight: 300;
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+}
+
+
+@media screen and (max-width: 375px) {
+    .modal {
+        width: 776px;
+        position: absolute;
+        margin: 0 auto;
+        display: block;
+    }
+    .close {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+    }
+    body span {
+        font-family: 'Mabry Pro Light';
+        font-weight: 300;
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+    
+}
